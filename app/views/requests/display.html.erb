@@ -1,0 +1,25 @@
+<div id="barra">
+
+<p id="notice"><%= notice %></p>
+
+<p><%= link_to 'Volver', root_path  %></p>
+<br/>
+<ul>
+  <li>Pedido hace: <%= time_ago_in_words @request.created_at %>
+  <li><br/>
+  <li>Reputación solicitante: <%= @request.user.score %>
+  <li><br/>
+  <li>Mensaje: <%= @request.message %>
+</ul>
+<br/>
+<%= form_tag "#{@request.id}/upload", :multipart => true, :method => 'put' do %>
+  El archivo solicitado:<br/>
+  <%= file_field_tag :attachment %><br/><br/>
+  Tu correo:<br/>
+  <%= email_field_tag :responder_email %><br/>
+  <%= submit_tag 'Enviar' %>
+<% end %>
+
+</div>
+
+<%= iframe @request %>

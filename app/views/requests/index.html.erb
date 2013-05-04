@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Nuevo pedido</h3>
+<br/>
+<%= form_tag 'requests' do %>
+  <p>
+  Correo*<br/>
+  <%= email_field_tag :requester_email %><br/>
+  Enlace*<br/>
+  <%= url_field_tag :url %><br/>
+  Mensaje<br/>
+  <%= text_area_tag :message %><br/>
+  <%= submit_tag 'Pedir' %>
+<% end %>
+<br/>
+
+<h1>Pedidos</h1>
+<br/>
+<table>
+  <% @requests.each do |request| %>
+      <tr>
+        <td>
+          <%= request.message %><br/>
+          · <%= link_to truncate(request.url), request %><br/>
+        </td>
+      </tr>
+  <% end %>
+</table>

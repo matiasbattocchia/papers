@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mail: MyString
+  score: 1
+
+two:
+  mail: MyString
+  score: 1
